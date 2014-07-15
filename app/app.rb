@@ -8,7 +8,7 @@ module Padrinoapp
     enable :sessions
 
     get '/' do
-      "Hello from " + Socket.gethostname + " running Ruby " + RUBY_VERSION
+      "Hello from " + Socket.gethostname + " running Ruby " + RUBY_VERSION + " at " + Time.now.inspect
     end
 
     # register Padrino::Cache
