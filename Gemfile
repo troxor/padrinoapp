@@ -12,6 +12,7 @@ source 'https://rubygems.org'
 
 # Project requirements
 gem 'rake'
+gem 'redis'
 
 # Component requirements
 gem 'erubis', '~> 2.7.0'
