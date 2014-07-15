@@ -1,3 +1,5 @@
+require 'socket'
+
 module Padrinoapp
   class App < Padrino::Application
     register Padrino::Mailer
@@ -5,13 +7,12 @@ module Padrinoapp
 
     enable :sessions
 
-    ##
-    # Caching support.
-    #
+    get '/' do
+      "Hello from " + Socket.gethostname
+    end
+
     # register Padrino::Cache
     # enable :caching
-    #
-    # You can customize caching store engines:
     #
     # set :cache, Padrino::Cache.new(:LRUHash) # Keeps cached values in memory
     # set :cache, Padrino::Cache.new(:Memcached) # Uses default server at localhost
@@ -25,9 +26,6 @@ module Padrinoapp
     # set :cache, Padrino::Cache.new(:File, :dir => Padrino.root('tmp', app_name.to_s, 'cache')) # default choice
     #
 
-    ##
-    # Application configuration options.
-    #
     # set :raise_errors, true       # Raise exceptions (will stop application) (default for test)
     # set :dump_errors, true        # Exception backtraces are written to STDERR (default for production/development)
     # set :show_exceptions, true    # Shows a stack trace in browser (default for development)
@@ -50,9 +48,6 @@ module Padrinoapp
     #   end
     #
 
-    ##
-    # You can manage errors like:
-    #
     #   error 404 do
     #     render 'errors/404'
     #   end
