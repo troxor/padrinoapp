@@ -4,10 +4,13 @@ module Padrinoapp
   class App < Padrino::Application
     register Padrino::Mailer
     register Padrino::Helpers
+    register Padrino::Cache
 
+    enable :caching
     enable :sessions
 
-    get '/' do
+    get '/', :cache => true do
+      expires 5  # in seconds
       "Hello from " + Socket.gethostname + " running Ruby " + RUBY_VERSION + " at " + Time.now.inspect
     end
 
