@@ -5,6 +5,7 @@ ruby '2.1.0'
 # Distribute your app as a gem
 # gemspec
 
+gem 'puma'
 # Server requirements
 # gem 'thin' # or mongrel
 # gem 'trinidad', :platform => 'jruby'
@@ -17,7 +18,8 @@ gem 'rake'
 gem 'redis'
 
 # Component requirements
-gem 'erubis', '~> 2.7.0'
+#gem 'erubis', '~> 2.7.0'
+gem 'slim'
 
 # Test requirements
 
