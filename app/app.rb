@@ -9,9 +9,14 @@ module Padrinoapp
     enable :caching
     enable :sessions
 
+    hname = Socket.gethostname
+    filename = 'app/app.rb'
+
     get '/', :cache => true do
       expires 5  # in seconds
-      "Hello from " + Socket.gethostname + " running Ruby " + RUBY_VERSION + " at " + Time.now.inspect
+      time = Time.now.inspect
+      size = File.stat(filename).size
+      "Hello from #{hname} running Ruby #{RUBY_VERSION} at #{time}. #{filename} is #{size} bytes."
     end
 
     # register Padrino::Cache
@@ -22,7 +27,7 @@ module Padrinoapp
     # set :cache, Padrino::Cache.new(:Memcached, '127.0.0.1:11211', :exception_retry_limit => 1)
     # set :cache, Padrino::Cache.new(:Memcached, :backend => memcached_or_dalli_instance)
     # set :cache, Padrino::Cache.new(:Redis) # Uses default server at localhost
-    set :cache, Padrino::Cache.new(:Redis, :host => '127.0.0.1', :port => 46379, :db => 0)
+    set :cache, Padrino::Cache.new(:Redis, :host => '127.0.0.1', :port => 36379, :db => 0)
     # set :cache, Padrino::Cache.new(:Redis, :backend => redis_instance)
     # set :cache, Padrino::Cache.new(:Mongo) # Uses default server at localhost
     # set :cache, Padrino::Cache.new(:Mongo, :backend => mongo_client_instance)

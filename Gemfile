@@ -5,7 +5,9 @@ ruby '2.1.0'
 # Distribute your app as a gem
 # gemspec
 
+gem 'foreman'
 gem 'puma'
+
 # Server requirements
 # gem 'thin' # or mongrel
 # gem 'trinidad', :platform => 'jruby'
