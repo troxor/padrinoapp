@@ -16,7 +16,12 @@ module Padrinoapp
       expires 5  # in seconds
       time = Time.now.inspect
       size = File.stat(filename).size
-      "Hello from #{hname} running Ruby #{RUBY_VERSION} at #{time}. #{filename} is #{size} bytes."
+      "<title> moo </title>"
+      "<h3>Hello from #{hname}</h3><br /><br /> Ruby #{RUBY_VERSION} at #{time}. #{filename} is #{size} bytes."
+    end
+
+    get :about, :map => '/about_us' do
+      render :erb, 'aboat us in Canada' 
     end
 
     # register Padrino::Cache
