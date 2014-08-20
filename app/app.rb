@@ -17,7 +17,7 @@ module Padrinoapp
       time = Time.now.inspect
       size = File.stat(filename).size
       "<title> moo </title>"
-      "<h3>Hello from #{hname}</h3><br /><br /> Ruby #{RUBY_VERSION} at #{time}. #{filename} is #{size} bytes."
+      "<h3>Hello from #{hname}</h3><br /><br /> Ruby #{RUBY_VERSION} at #{time}. #{filename} is #{size} bytes.\n"
     end
 
     get :about, :map => '/about_us' do
